@@ -96,10 +96,10 @@
 		}
 	}
 	&__logo {
-		max-width: 184px;
-		height: 44px;
-		background-color: #fff;
 		margin-bottom: 32px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		@include media(s) {
 			margin-bottom: 24px;
 		}
@@ -123,7 +123,7 @@
 		}
 	}
 	&__content {
-		max-width: 673px;
+		max-width: 1030px;
 		padding-top: 32px;
 		.button--container {
 			display: flex;
@@ -141,7 +141,8 @@
 		margin-bottom: 16px;
 	}
 	.default__desc {
-		margin-bottom: 32px;
+		max-width: 698px;
+		margin: 0 auto 32px;
 	}
 }
 .resources {
@@ -158,13 +159,22 @@
 			padding: 0 24px;
 		}
 	}
+	&__title {
+		@include text;
+		font-weight: bold;
+		color: $texto-resources;
+		margin-bottom: 32px;
+	}
 	.default__title {
 		color: $cor-primaria;
 		margin: 16px 0px;
+		max-width: 1040px;
+		margin: 0 auto;
+		text-align: center;
 	}
 	.default__desc {
 		color: $texto-legenda;
-		margin-bottom: 32px;
+		margin: 24px auto 48px;
 	}
 	&__content {
 		display: flex;
@@ -172,8 +182,8 @@
 		align-items: center;
 		gap: 24px;
 		flex-wrap: wrap;
-		margin-bottom: 32px;
 		@include container;
+		margin-bottom: 48px;
 	}
 }
 .benefits {
@@ -213,7 +223,9 @@
 		}
 	}
 	.default__title {
-		margin: 24px 0px;
+		text-align: center;
+		@include container;
+		margin-bottom: 48px;
 	}
 	.default__desc {
 		color: $texto-legenda;
