@@ -60,11 +60,19 @@
 	.nav-link {
 		color: $cor-primaria;
 		text-transform: uppercase;
+		font-weight: bold;
 		text-decoration: none;
 	}
 }
 .hero {
 	background-color: $cor-primaria;
+	position: relative;
+	&::after {
+		content: url("../assets/avioes.png");
+		position: absolute;
+		right: 0;
+		top: 50px;
+	}
 	&__container {
 		display: flex;
 		padding: 80px 0px;
@@ -103,7 +111,7 @@
 	&__logo {
 		margin-bottom: 32px;
 		display: flex;
-		justify-content: center;
+		justify-content: start;
 		align-items: center;
 		@include media(s) {
 			margin-bottom: 24px;
@@ -123,12 +131,13 @@
 			max-width: 100%;
 			height: auto;
 			object-fit: cover;
-			border: 8px solid $cor-primaria-clara;
+			position: relative;
+			z-index: 9999;
 			@include l-border;
 		}
 	}
 	&__content {
-		max-width: 1030px;
+		max-width: 600px;
 		padding-top: 32px;
 		.button--container {
 			display: flex;
@@ -143,11 +152,21 @@
 	}
 	&__title {
 		@include hero;
-		margin-bottom: 16px;
+		text-transform: uppercase;
+		margin-bottom: 24px;
+	}
+	&__sub-title {
+		font-family: "Inter", sans-serif;
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 150%;
+		max-width: 511px;
+		margin-bottom: 24px;
 	}
 	.default__desc {
-		max-width: 698px;
-		margin: 0 auto 32px;
+		max-width: 487px;
+		margin-bottom: 32px;
 	}
 }
 .resources {
@@ -172,14 +191,29 @@
 	}
 	.default__title {
 		color: $cor-primaria;
-		margin: 16px 0px;
 		max-width: 1040px;
-		margin: 0 auto;
+		margin: 24px auto;
 		text-align: center;
+		@include media(s) {
+			text-align: left;
+		}
+	}
+	.default__bigger-desc {
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 500;
+		max-width: 789px;
+		margin: 0 auto 48px;
+		line-height: 150%;
+		text-align: center;
+		@include media(s) {
+			text-align: left;
+		}
 	}
 	.default__desc {
 		color: $texto-legenda;
-		margin: 24px auto 48px;
+		margin: 0px auto 24px;
+		text-align: left;
 	}
 	&__content {
 		display: flex;
@@ -195,12 +229,12 @@
 	background-color: $cor-primaria-clara;
 	padding: 80px 0px;
 	@include media(s) {
-		padding: 60px 0px;
+		padding: 60px 24px;
 	}
 	&__container {
 		@include container;
 		display: flex;
-		gap: 58px;
+		justify-content: space-between;
 		@include media(s) {
 			flex-direction: column;
 		}
@@ -223,27 +257,49 @@
 		display: flex;
 		flex-direction: column;
 		gap: 24px;
+		ul {
+			padding: 0;
+			margin: 0;
+			margin-left: 20px;
+			li {
+				@include text;
+				font-size: 18px;
+				font-style: normal;
+				font-weight: 400;
+				line-height: 150%;
+				color: #5c5c5c;
+			}
+		}
 		@include media(s) {
 			flex-direction: column;
-			align-items: center;
-			justify-content: center;
+			align-items: start;
+			justify-content: start;
 			display: flex;
-			padding: 0 24px;
 		}
 	}
 	&__title {
 		@include general-title-smaller;
-		color: $neutro-700;
+		color: $cor-primaria;
 	}
 	.default__title {
 		text-align: center;
 		@include container;
+		font-size: 39px;
 		margin-bottom: 48px;
+		@include media(s) {
+			text-align: left;
+		}
 	}
 	.default__desc {
 		color: $neutro-700;
+		max-width: 588px;
+		b {
+			font-size: 20px;
+			font-style: normal;
+			font-weight: 600;
+		}
 		@include media(s) {
-			text-align: center;
+			text-align: left;
 		}
 	}
 
@@ -389,6 +445,17 @@
 		}
 		.form-gap {
 			flex-wrap: wrap;
+			.input_wrap {
+				@include media(s) {
+					width: 100%;
+				}
+				input {
+					@include media(s) {
+						width: 100%;
+						flex-shrink: 0;
+					}
+				}
+			}
 		}
 		@include l-border;
 		input {
@@ -422,6 +489,10 @@
 	}
 	&__side {
 		max-width: 576px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 		@include media(s) {
 			display: flex;
 			justify-content: center;
@@ -475,6 +546,7 @@
 				}
 				&:not(.collapsed) {
 					color: $cor-primaria;
+					font-weight: bold;
 					background-color: #f0f0f0;
 					border-radius: 8px 8px 0px 0px;
 					border: none;
